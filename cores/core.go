@@ -45,9 +45,10 @@ func GetUniqueValuesInColumn(data [][]string, num int) []string {
 	return names
 }
 
+// 二维数组中一维相同下标元素的和值
 func SumColumnValues(data [][]string, num int) float64 {
 	var amount float64
-	for i := 1; i < len(data); i++ {
+	for i := 0; i < len(data); i++ {
 		bet, _ := strconv.ParseFloat(data[i][num], 64)
 		amount += bet
 	}
@@ -88,4 +89,16 @@ func GetThreeArrayAmount(data [][][]string, name string) int {
 	fmt.Println("游戏名字错误")
 	os.Exit(0)
 	return -1
+}
+
+// 获取二维数组中相同一维下标的最大值
+func GetMaxWin(data [][]string) float64 {
+	var MaxWin float64 = 0
+	for i := 0; i < len(data); i++ {
+		valueF, _ := strconv.ParseFloat(data[i][16], 64)
+		if MaxWin < valueF {
+			MaxWin = valueF
+		}
+	}
+	return MaxWin
 }
