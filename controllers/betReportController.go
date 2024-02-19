@@ -37,4 +37,15 @@ func (b *BetReportController) BetReportFormatContent() {
 }
 
 func (b *BetReportController) BetGamesFormatContent() {
+	b.Content = fmt.Sprintf("%s：\n", b.BetGames.GameName)
+	cores.UpDataReport(b.Content, b.TxtPath)
+
+	b.Content = fmt.Sprintf("(1)注单数：%v（占总注单数%s）", b.BetGames.BettingOrderQuantity, b.BetGames.BetOrderPro)
+	cores.UpDataReport(b.Content, b.TxtPath)
+
+	b.Content = fmt.Sprintf("(2)有效投注：%v（占总有效金额%s）", b.BetGames.BettingAmount, b.BetGames.BetAmountPro)
+	cores.UpDataReport(b.Content, b.TxtPath)
+
+	b.Content = fmt.Sprintf("(3)游戏输赢：%v（占总输赢%s）", b.BetGames.WinOrLose, b.BetGames.WinOrLosePro)
+	cores.UpDataReport(b.Content, b.TxtPath)
 }

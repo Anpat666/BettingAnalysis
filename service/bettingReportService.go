@@ -47,7 +47,7 @@ func (b *BetReportService) GetBetReportService() {
 		b.BetReportController.BetGames.BetAmountPro = cores.ProPortion(b.BetReportController.BettingReport.BettingAmount, b.BetReportController.BetGames.BettingAmount)
 		b.BetReportController.BetGames.WinOrLose = cores.SumColumnValues(b.BetReportController.GamesClass[i], 16)
 		b.BetReportController.BetGames.WinOrLosePro = cores.ProPortion(b.BetReportController.BettingReport.WinOrLose, b.BetReportController.BetGames.WinOrLose)
-
+		b.BetReportController.BetGamesFormatContent()
 	}
 
 }
