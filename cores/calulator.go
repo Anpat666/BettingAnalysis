@@ -54,11 +54,52 @@ func GetWinRateCoe(data [][]string) float64 {
 // 游戏判定
 func GetGamesByRate(data [][]string) float64 {
 	gameName := data[0][4]
-	baccarat := "百家乐"
 	gameMethod := data[0][12]
-	if strings.ContainsAny(gameName, baccarat) {
+
+	if strings.ContainsAny(gameName, "百家乐") {
 		return models.Baccarat[gameMethod]
+	}
+
+	if strings.ContainsAny(gameName, "赛车") {
+		return models.RacingTen[gameMethod]
+	}
+	if strings.ContainsAny(gameName, "飞艇") {
+		return models.RacingTen[gameMethod]
+	}
+
+	if strings.ContainsAny(gameName, "澳洲幸运10") {
+		return models.RacingTen[gameMethod]
+	}
+
+	if strings.ContainsAny(gameName, "时时彩") {
+		return models.ColorfulFive[gameMethod]
+	}
+
+	if strings.ContainsAny(gameName, "快三") {
+		for k, v := range models.FastThree {
+			if StringJudgment(gameMethod, k) {
+				return v
+			}
+		}
 	}
 	return 0
 
+}
+
+// 判断两个字符str1是否都存在于str2里面
+func StringJudgment(str1 string, str2 string) bool {
+
+	for _, v := range str1 {
+		found := false
+		for _, v2 := range str2 {
+			if v == v2 {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+	return true
 }

@@ -25,10 +25,10 @@ func (b *BetReportController) BetReportFormatContent() {
 	b.Content = fmt.Sprintf("总投注注单数：%v\n", b.BettingReport.BettingOrderQuantity)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
-	b.Content = fmt.Sprintf("总有效投注金额:%v\n", b.BettingReport.BettingAmount)
+	b.Content = fmt.Sprintf("总有效投注金额:%.f\n", b.BettingReport.BettingAmount)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
-	b.Content = fmt.Sprintf("总输赢:%v\n", b.BettingReport.WinOrLose)
+	b.Content = fmt.Sprintf("总输赢:%.f\n", b.BettingReport.WinOrLose)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
 	b.Content = fmt.Sprintln("主要投注游戏如下：")
@@ -43,10 +43,10 @@ func (b *BetReportController) BetGamesFormatContent(num int) {
 	b.Content = fmt.Sprintf("   (1)注单数：%v（占总注单数%s）\n", b.BetGames.BettingOrderQuantity, b.BetGames.BetOrderPro)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
-	b.Content = fmt.Sprintf("   (2)有效投注：%v（占总有效金额%s）\n", b.BetGames.BettingAmount, b.BetGames.BetAmountPro)
+	b.Content = fmt.Sprintf("   (2)有效投注：%.f（占总有效金额%s）\n", b.BetGames.BettingAmount, b.BetGames.BetAmountPro)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
-	b.Content = fmt.Sprintf("   (3)游戏输赢：%v（占总输赢%s）\n", b.BetGames.WinOrLose, b.BetGames.WinOrLosePro)
+	b.Content = fmt.Sprintf("   (3)游戏输赢：%.f（占总输赢%s）\n", b.BetGames.WinOrLose, b.BetGames.WinOrLosePro)
 	cores.UpDataReport(b.Content, b.TxtPath)
 
 	b.Content = fmt.Sprintln("   (4)主要投注玩法：")
@@ -54,7 +54,7 @@ func (b *BetReportController) BetGamesFormatContent(num int) {
 }
 
 func (b *BetReportController) BetGameMethodFormatContent(num int) {
-	b.Content = fmt.Sprintf("       [%v]%s 注单数%v,有效投注%v,输赢%v,胜率%s,胜率系数%.2f,玩法等级评估:%s\n",
+	b.Content = fmt.Sprintf("       [%v]%s 注单数%v,有效投注%v,输赢%.f,胜率%s,胜率系数%.2f,玩法等级评估:%s\n",
 		num+1,
 		b.BettingMethods.MethodName,
 		b.BettingMethods.BettingOrderQuantity,

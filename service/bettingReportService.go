@@ -32,6 +32,7 @@ func NewBetReportService() *BetReportService {
 func (b *BetReportService) GetBetReportService() {
 	cores.ClearDocument(b.BetReportController.TxtPath)
 	b.BetDataTotal = cores.GetExcelRows(b.F, "代理端-报表管理-投注详情_0")
+	cores.DataSorting(b.BetDataTotal)
 	b.BetReportController.BettingReport.PlayerName = cores.GetUniqueValuesInColumn(b.BetDataTotal, 3)
 	b.BetReportController.BettingReport.BettingTimeStart = b.BetDataTotal[len(b.BetDataTotal)-1][17]
 	b.BetReportController.BettingReport.BettingTimeEnd = b.BetDataTotal[1][17]
