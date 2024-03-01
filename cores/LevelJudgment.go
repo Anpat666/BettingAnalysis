@@ -16,16 +16,16 @@ func GameMethodLevelJudgment(profit float64, WinRateCoe float64, maxSingleWin fl
 		}
 	case profit >= 3000 && profit < 10000:
 		level = "持续观察"
-		if maxSingleWin < 0.2*totalBet && profit < 0.15*totalBet && WinRateCoe < 1.0 {
+		if maxSingleWin < 0.2*totalBet && profit < 0.15*totalBet && WinRateCoe < 1.1 {
 			level = "正常"
-		} else if WinRateCoe >= 1 {
+		} else if WinRateCoe >= 1.4 {
 			level = "警告"
 		}
 	case profit >= 10000 && profit < 30000:
 		level = "警告"
-		if maxSingleWin < 0.15*totalBet && profit < 0.1*totalBet && WinRateCoe < 1.0 {
+		if maxSingleWin < 0.15*totalBet && profit < 0.1*totalBet && WinRateCoe < 1.2 {
 			level = "持续观察"
-		} else if WinRateCoe >= 1 {
+		} else if WinRateCoe >= 1.5 {
 			level = "危险"
 		}
 	case profit >= 30000:
@@ -59,12 +59,12 @@ func AccountLevelJudgment(profit, winRateCoefficient float64) string {
 		}
 	case profit >= 10000 && profit < 30000:
 		level = "警告"
-		if winRateCoefficient > 1.1 {
+		if winRateCoefficient > 1.2 {
 			level = "危险"
 		}
 	case profit >= 30000:
 		level = "危险"
-		if winRateCoefficient < 1.0 {
+		if winRateCoefficient < 1.1 {
 			level = "警告"
 		}
 	}

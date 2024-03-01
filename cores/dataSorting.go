@@ -2,6 +2,9 @@ package cores
 
 func DataSorting(data [][]string) {
 	for i := 0; i < len(data); i++ {
+		if StringJudgment("百家乐", data[i][4]) {
+			data[i][4] = "百家乐"
+		}
 		if StringJudgment("三不同", data[i][12]) {
 			data[i][12] = "三不同"
 		}

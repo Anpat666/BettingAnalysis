@@ -40,6 +40,14 @@ var FastThree = map[string]float64{
 
 var ColorfulFive = map[string]float64{
 	"定位胆": 0.1,
+	"豹子":  0.01,
+	"半顺":  0.36,
+	"对子":  0.27,
+	"杂六":  0.3,
+	"顺子":  0.06,
+	"龙":   0.4545,
+	"虎":   0.4545,
+	"和":   0.1,
 }
 
 var RacingTen = map[string]float64{
